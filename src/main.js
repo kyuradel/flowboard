@@ -73,6 +73,14 @@ const HINT_DRAGGING = "💡 원하는 칸에 놓으면 상태가 변경돼요";
 
 let editing = null;
 
+function resetArmedMenus() {
+  document.querySelectorAll(".col-menu-item").forEach((item) => {
+    item.dataset.armed = "0";
+    item.textContent = "비우기";
+    item.classList.remove("danger");
+  });
+}
+
 function render() {
   boardEl.innerHTML = "";
   let totalCards = 0;
@@ -155,6 +163,7 @@ function render() {
       e.stopPropagation();
       const wasHidden = menu.hidden;
       document.querySelectorAll(".col-menu").forEach((m) => { m.hidden = true; });
+      resetArmedMenus();
       menu.hidden = !wasHidden;
     });
     clearItem.addEventListener("click", (e) => {
@@ -277,11 +286,19 @@ function findCard(columnId, cardId) {
   return state.columns[columnId].find((c) => c.id === cardId);
 }
 
+fTitle.addEventListener("input", () => fTitle.setCustomValidity(""));
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!editing) return;
   const title = fTitle.value.trim();
-  if (!title) return;
+  if (!title) {
+    fTitle.setCustomValidity("제목을 입력해주세요");
+    fTitle.reportValidity();
+    fTitle.focus();
+    return;
+  }
+  fTitle.setCustomValidity("");
   if (editing.cardId) {
     const card = findCard(editing.columnId, editing.cardId);
     card.title = title;
@@ -327,6 +344,7 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".col-menu-wrap")) {
     document.querySelectorAll(".col-menu").forEach((m) => { m.hidden = true; });
+    resetArmedMenus();
   }
 });
 
@@ -347,6 +365,7 @@ function nextCardId(cardEl) {
 }
 
 function onHandleDown(e) {
+  if (drag) return;
   const cardEl = e.currentTarget.closest(".card");
   if (!cardEl) return;
   e.preventDefault();
