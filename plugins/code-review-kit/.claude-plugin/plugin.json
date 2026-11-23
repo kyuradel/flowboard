@@ -1,0 +1,9 @@
+{
+  "name": "code-review-kit",
+  "version": "0.1.0",
+  "description": "Code review skill, a reviewer subagent that uses it, and a lint/build/test pre-commit hook, bundled for reuse across projects.",
+  "author": {
+    "name": "kyuradel",
+    "email": "kyuradel@gmail.com"
+  }
+}
