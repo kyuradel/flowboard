@@ -1,8 +1,10 @@
 # 플로우보드 (FlowBoard)
 
-순수 클라이언트 사이드로 동작하는 칸반/투두 보드입니다. 백엔드 없이 브라우저의 `localStorage`에 상태를 저장합니다.
+작은 계획이, 완성되는 곳 — 순수 클라이언트 사이드로 동작하는 칸반/투두 보드입니다. 백엔드 없이 브라우저의 `localStorage`에 상태를 저장합니다.
 
-## 기능
+![플로우보드 대시보드 스크린샷](./sample/1.png)
+
+## 주요 기능
 
 - To-do / Doing / Done 3단 칸반 보드
 - 포인터 이벤트 기반 드래그 앤 드롭 (마우스/터치 모두 지원)
@@ -35,12 +37,12 @@ Vite + Vanilla JS (프레임워크 없음). 라우팅/백엔드 없이 `index.ht
 ## 프로젝트 구조
 
 ```
-index.html         # 마크업
-src/style.css       # 전체 스타일 (다크모드 지원)
-src/main.js         # 앱 로직 (상태, 렌더링, 드래그앤드롭, 모달)
-src/lib/date.js      # 순수 날짜 유틸 (테스트 대상)
-tests/date.test.js   # src/lib/date.js 유닛 테스트
-sample/*.png         # 원본 Claude Artifact 디자인 참고 스크린샷
+index.html          # 마크업
+src/style.css        # 전체 스타일 (다크모드 지원)
+src/main.js          # 앱 로직 (상태, 렌더링, 드래그앤드롭, 모달)
+src/lib/date.js       # 순수 날짜 유틸 (테스트 대상)
+tests/date.test.js    # src/lib/date.js 유닛 테스트
+sample/*.png          # 원본 Claude Artifact 디자인 참고 스크린샷
 ```
 
 자세한 아키텍처 설명은 [`CLAUDE.md`](./CLAUDE.md)를 참고하세요.
