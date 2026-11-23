@@ -2,12 +2,25 @@
 
 작은 계획이, 완성되는 곳 — 순수 클라이언트 사이드로 동작하는 칸반/투두 보드입니다. 백엔드 없이 브라우저의 `localStorage`에 상태를 저장합니다.
 
-![플로우보드 대시보드 스크린샷](./sample/3.png)
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="./sample/3.png" alt="대시보드 화면" width="100%" />
+<br />
+<sub>대시보드 화면 — To-do / Doing / Done 보드와 진행률</sub>
+</td>
+<td width="50%" align="center">
+<img src="./sample/4.png" alt="드래그 앤 드롭 화면" width="100%" />
+<br />
+<sub>드래그 앤 드롭 — 카드를 끌어 상태를 바꾸는 모습</sub>
+</td>
+</tr>
+</table>
 
 ## 주요 기능
 
 - To-do / Doing / Done 3단 칸반 보드
-- 포인터 이벤트 기반 드래그 앤 드롭 (마우스/터치 모두 지원)
+- 포인터 이벤트 기반 드래그 앤 드롭 (마우스/터치 모두 지원, 위 오른쪽 스크린샷 참고)
 - 마감일 표시 및 상태 뱃지 (지남 / 오늘·내일 마감 / D-day)
 - "마감 지남" 필터, 진행률(완료 비율) 표시
 - 카드 추가 / 수정 / 삭제 모달
@@ -42,7 +55,7 @@ src/style.css        # 전체 스타일 (다크모드 지원)
 src/main.js          # 앱 로직 (상태, 렌더링, 드래그앤드롭, 모달)
 src/lib/date.js       # 순수 날짜 유틸 (테스트 대상)
 tests/date.test.js    # src/lib/date.js 유닛 테스트
-sample/*.png          # 원본 Claude Artifact 디자인 참고 스크린샷
+sample/*.png          # 디자인/기능 참고 스크린샷 (원본 Claude Artifact + 대시보드/드래그 앤 드롭)
 ```
 
 자세한 아키텍처 설명은 [`CLAUDE.md`](./CLAUDE.md)를 참고하세요.
